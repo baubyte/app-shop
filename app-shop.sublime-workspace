@@ -1,0 +1,363 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"btn-",
+				"btn-danger \tBootstrap 3 Class"
+			],
+			[
+				"b",
+				"btn \tBootstrap 3 Class"
+			],
+			[
+				"pu",
+				"pull-right \tBootstrap 3 Class"
+			],
+			[
+				"hidden-",
+				"hidden-xs \tBootstrap 3 Class"
+			],
+			[
+				"na",
+				"navbar \tBootstrap 4 Class"
+			],
+			[
+				"n",
+				"navbar \tBootstrap 4 Class"
+			],
+			[
+				"c",
+				"class\tAttr"
+			],
+			[
+				"u",
+				"ul\tTag"
+			],
+			[
+				"di",
+				"div\tTag"
+			],
+			[
+				"nav",
+				"navigation"
+			],
+			[
+				"lo",
+				"logo"
+			],
+			[
+				"im",
+				"img-responsive \tBootstrap 3 Class"
+			],
+			[
+				"comm-h",
+				"comm-html\tComment - HTML comment"
+			],
+			[
+				"hea",
+				"header\tTag"
+			],
+			[
+				"mo",
+				"modulos/"
+			],
+			[
+				"comm-",
+				"comm-section\tComment - Full section comment"
+			],
+			[
+				"Gas",
+				"Gastos"
+			],
+			[
+				"comm",
+				"comm-section\tComment - Full section comment"
+			],
+			[
+				"hi",
+				"height"
+			],
+			[
+				"hei",
+				"height"
+			],
+			[
+				"fun",
+				"function〔keyword〕"
+			],
+			[
+				"mys",
+				"mysql_connect"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"LiveReload: Enable/disable plugins",
+				"LiveReload: Enable/disable plug-ins"
+			],
+			[
+				"Package Control: li",
+				"Package Control: List Packages"
+			],
+			[
+				"Package Control: lis",
+				"Package Control: List Packages"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"INS",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 157.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '6f4c264a24d933ce70df5dedcf1dcaee' + 'ebe013ee18cced0ef93d5f746d80ef60'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/xampp/htdocs/app-shop"
+	],
+	"file_history":
+	[
+		"/C/Users/BAUBYTE/AppData/Roaming/Sublime Text 3/Packages/User/CompilarC++.sublime-build",
+		"/C/xampp/htdocs/webalquiler/index.php",
+		"/C/xampp/htdocs/POS/index.php",
+		"/C/xampp/htdocs/POS/vistas/dist/css/skins/_all-skins.css",
+		"/C/Users/BAUBYTE/AppData/Local/Temp/Rar$DRa0.543/01.AdminLTE-MVC/AdminLTE-2.4.2/pages/layout/collapsed-sidebar.html",
+		"/C/xampp/htdocs/POS/vistas/js/plantilla.js",
+		"/C/Users/BAUBYTE/AppData/Roaming/Sublime Text 3/Packages/DocPHPManualer/DocPHPManualer.sublime-settings",
+		"/C/Users/BAUBYTE/AppData/Roaming/Sublime Text 3/Packages/User/DocPHPManualer.sublime-settings",
+		"/C/xampp/htdocs/POS/vistas/plantilla.php",
+		"/D/xampp_PHP_7/htdocs/POS/index.php",
+		"/D/xampp_PHP_7/htdocs/POS/js/codigo.js",
+		"/D/xampp_PHP_7/htdocs/POS/js/archivo.js",
+		"/D/xampp_PHP_7/htdocs/POS/css/estilo.css",
+		"/D/xampp/htdocs/BAUBYTE_PRUEBAS/pedidos/Codigo Fuente y Recursos/Base 01-10-2018.sql",
+		"/D/BAUBYTE/Downloads/127_0_0_1 (1).sql",
+		"/D/BAUBYTE/Downloads/codPos_plano_JAG/CP_Argentina/db_localidades.bak",
+		"/D/BAUBYTE/Downloads/127_0_0_1.sql",
+		"/D/xampp/htdocs/BAUBYTE_PRUEBAS/pedidos/codigo fuente/GPST/js/supersized.shutter.js",
+		"/D/xampp/htdocs/BAUBYTE_PRUEBAS/pedidos/codigo fuente/GPST/js/supersized.3.2.7.js",
+		"/D/xampp/htdocs/BAUBYTE_PRUEBAS/pedidos/codigo fuente/GPST/js/custom.js",
+		"/D/xampp/htdocs/BAUBYTE_PRUEBAS/pedidos/js/informacion.txt",
+		"/D/xampp/htdocs/BAUBYTE_PRUEBAS/pedidos/tienda_tusolutionweb.sql",
+		"/D/xampp/htdocs/BAUBYTE_PRUEBAS/pedidos/informacion.txt",
+		"/D/xampp/htdocs/BAUBYTE_PRUEBAS/pdv/app/controllers/Pos.php",
+		"/D/xampp/htdocs/BAUBYTE_PRUEBAS/Betav4.0.4/app/controllers/Reports.php",
+		"/D/xampp/htdocs/BAUBYTE_PRUEBAS/pdv/themes/default/views/header.php",
+		"/D/xampp/htdocs/BAUBYTE_PRUEBAS/pdv/app/controllers/Reports.php",
+		"/D/xampp/htdocs/BAUBYTE_PRUEBAS/pdv/themes/default/assets/dist/css/AdminLTE.min.css",
+		"/D/xampp/htdocs/BAUBYTE_PRUEBAS/pdv/themes/default/assets/dist/css/AdminLTE.css",
+		"/D/xampp/htdocs/BAUBYTE_PRUEBAS/pdv/themes/default/assets/dist/css/skins/_all-skins.css",
+		"/D/xampp/htdocs/BAUBYTE_PRUEBAS/pdv/themes/default/assets/dist/css/custom.css",
+		"/D/xampp/htdocs/BAUBYTE_PRUEBAS/pdv/update/css/custom.css",
+		"/D/xampp/htdocs/BAUBYTE_PRUEBAS/pdv/app/config/config.php",
+		"/D/xampp/htdocs/BAUBYTE_PRUEBAS/pdv/themes/default/views/auth/index.php",
+		"/D/xampp/htdocs/BAUBYTE_PRUEBAS/pdv/app/controllers/Auth.php",
+		"/D/xampp/htdocs/BAUBYTE_PRUEBAS/Varios/pdv/app/controllers/Auth.php",
+		"/D/xampp/htdocs/BAUBYTE_PRUEBAS/pdv/app/config/database.php",
+		"/D/xampp/htdocs/BAUBYTE_PRUEBAS/pdv/app/config/hooks.php",
+		"/D/xampp/htdocs/BAUBYTE_PRUEBAS/pdv/app/libraries/Ion_auth.php",
+		"/D/xampp/htdocs/BAUBYTE_PRUEBAS/PDV_edit/app/config/database.php",
+		"/D/xampp/htdocs/BAUBYTE_PRUEBAS/PDV_edit/app/config/config.php",
+		"/D/xampp/htdocs/BAUBYTE_PRUEBAS/PDV_edit/app/language/castellano/auth_lang.php",
+		"/D/xampp/htdocs/BAUBYTE_PRUEBAS/PDV_edit/themes/default/views/pos/view.php",
+		"/D/xampp/htdocs/BAUBYTE_PRUEBAS/PDV_edit/app/language/castellano/app_lang.php",
+		"/D/xampp/htdocs/BAUBYTE_PRUEBAS/PDV_edit/themes/default/views/pos/view_bill.php",
+		"/D/xampp/htdocs/BAUBYTE_PRUEBAS/PDV_edit/themes/default/views/auth/login.php",
+		"/D/xampp/htdocs/BAUBYTE_PRUEBAS/PDV_edit/themes/default/views/settings/index.php",
+		"/D/xampp/htdocs/BAUBYTE_PRUEBAS/PDV_edit/app/config/ion_auth.php",
+		"/D/xampp/htdocs/BAUBYTE_PRUEBAS/charts&mpdf/pdf2.php",
+		"/D/xampp/htdocs/BAUBYTE_PRUEBAS/charts&mpdf/pdf.php",
+		"/D/xampp/htdocs/BAUBYTE_PRUEBAS/charts&mpdf/charts.php",
+		"/D/xampp/htdocs/BAUBYTE_PRUEBAS/charts.php",
+		"/D/xampp/htdocs/Sublime Projectos.sublime-project",
+		"/C/Users/BAUBYTE/AppData/Roaming/Sublime Text 3/Packages/User/LiveReload.sublime-settings",
+		"/C/Users/BAUBYTE/AppData/Roaming/Sublime Text 3/Packages/User/Side Bar.sublime-settings",
+		"/D/BAUBYTE/Desktop/prueba.php",
+		"/D/xampp/htdocs/BAUBYTE_PRUEBAS/pdv/themes/default/assets/bootstrap/css/bootstrap.css",
+		"/D/xampp/htdocs/BAUBYTE_PRUEBAS/charts_2.php",
+		"/C/Users/BAUBYTE/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/Users/BAUBYTE/AppData/Roaming/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/D/BAUBYTE/Desktop/prueba.html",
+		"/D/BAUBYTE/Desktop/prueba"
+	],
+	"find":
+	{
+		"height": 27.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 43.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.mdpopups":
+	{
+		"height": 0.0
+	},
+	"output.sftp":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "Packages/C++/C Single File.sublime-build",
+	"project": "app-shop.sublime-project",
+	"replace":
+	{
+		"height": 50.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 229.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
