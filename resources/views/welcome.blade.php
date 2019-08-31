@@ -1,99 +1,135 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.app')
+ 
+@section('title','Bienvenido a Pequitas Lenceria')
 
-        <title>Laravel</title>
+@section('body-class','landing-page sidebar-collapse')
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+@section('content')
+<div class="page-header header-filter" data-parallax="true" style="background-image: url('{{ asset('img/profile_city.jpg')}}')">
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h1 class="title">Tu historia comienza con nosotros.</h1>
+        <!--<h4>Esto recién empieza .. Ayudame a construir esta historia juntos.</h4>-->
+        <br>
+        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" class="btn btn-danger btn-raised btn-lg">
+          <i class="fa fa-play"></i> ¿Como funciona?
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
-            </div>
+  <div class="main main-raised">
+  
+  <div class="container">
+    <div class="section text-center">
+      <div class="row">
+        <div class="col-md-8 ml-auto mr-auto">
+          <h2 class="title">Hablemos de Nosotros</h2>
+          <h5 class="description">Pequitas Lenceria !! Esto recién empieza .. Ayudame a construir esta historia juntos.</h5>
         </div>
-    </body>
-</html>
+      </div>
+      <div class="features">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="info">
+              <div class="icon icon-rose">
+                <i class="material-icons">verified_user</i>
+              </div>
+              <h4 class="info-title">Misión</h4>
+              <p>Poner a tu alcance los artículos de lencería que mas te gustan, haciendo todo lo posible para conseguirlos !!</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="info">
+              <div class="icon icon-rose">
+                <i class="material-icons">visibility</i>
+              </div>
+              <h4 class="info-title">Visión</h4>
+              <p>Poder ganar tu confianza así construir una buena relación de negocios !!</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="info">
+              <div class="icon icon-rose">
+                <i class="material-icons">account_circle</i>
+              </div>
+              <h4 class="info-title">Simple</h4>
+              <p>Solo te registras y haces tu pedido.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section text-center">
+      <h2 class="title">Productos Disponibles</h2>
+      <div class="team">
+        <div class="row">
+          @foreach ($products as $product)
+          <div class="col-md-4">
+            <div class="team-player">
+              <div class="card card-plain">
+                <div class="col-md-6 ml-auto mr-auto">
+                  <img src="{{ $product->featured_image_url }}" alt="Thumbnail Image" class="img-raised rounded-circle img-fluid">
+                </div>
+                <h4 class="card-title">{{ $product->name }}
+                  <br>
+                  <small class="card-description text-muted">{{ $product->category->name }}</small>
+                </h4>
+                <div class="card-body">
+                  <p class="card-description">{{ $product->description }}</p>
+                </div>
+                <div class="card-footer justify-content-center">
+                  <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fa fa-twitter"></i></a>
+                  <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fa fa-instagram"></i></a>
+                  <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fa fa-facebook-square"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          @endforeach
+        </div>
+      </div>
+    </div>
+    <div class="section section-contacts">
+      <div class="row">
+        <div class="col-md-8 ml-auto mr-auto">
+          <h2 class="text-center title">Contacto</h2>
+          <h4 class="text-center description">Dejanos tu comentario.</h4>
+          <form class="contact-form">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="bmd-label-floating">Nombre</label>
+                  <input type="email" class="form-control">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="bmd-label-floating">Correo Electronico</label>
+                  <input type="email" class="form-control">
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="exampleMessage" class="bmd-label-floating">Mensaje</label>
+              <textarea type="email" class="form-control" rows="4" id="exampleMessage"></textarea>
+            </div>
+            <div class="row">
+              <div class="col-md-4 ml-auto mr-auto text-center">
+                <button class="btn btn-primary btn-rose">
+                  Enviar Mensaje
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+</div>
+
+</div>
+@include('includes.footer');
+@endsection
