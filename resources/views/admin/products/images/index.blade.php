@@ -39,12 +39,15 @@
 			    <img class="card-img-top" src="{{ $image->url}}" alt="Imagen del Producto" style="width:200; height: 200;">
 			    <div class="card-body">
 			    	<form method="post" action="">
-			    	@csrf
-			    	@method('DELETE')
-			    	<input type="hidden" name="image_id" value="{{ $image->id}}">
-	                <button type="submit" data-toggle="tooltip" data-placement="top" title="Eliminar Imagen" class="btn btn-danger btn-fab btn-fab-mini btn-round">
-	                      <i class="material-icons">close</i>
-	                  </button>
+			    		@csrf
+			    		@method('DELETE')
+			    		<input type="hidden" name="image_id" value="{{ $image->id}}">
+		                <button type="submit" data-toggle="tooltip" data-placement="top" title="Eliminar Imagen" class="btn btn-danger btn-fab btn-fab-mini btn-round">
+		                   <i class="material-icons">close</i>
+		                </button>
+						<a href="{{ url('/products/.$products->id./images/select/'.$image->id)}}" data-toggle="tooltip" data-placement="top" title="Destacar Imagen" class="btn btn-primary btn-fab btn-fab-mini btn-round">
+							<i class="material-icons">favorite</i>
+						</a>
 	               	</form>
 			    </div>
 			  </div>

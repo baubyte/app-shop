@@ -56,4 +56,17 @@ class ImageController extends Controller
       }
       return back();
    }
+   public function select($d, $image)
+   {
+      //Primero Actualizamos Las Imagenaes Actualizadas Anteriormente
+      ProductImage::where('product_id', $id)->update([
+         'featured'=>false
+      ]);
+      //Despues descamos la imagen seleccionada
+      $ProductImage = ProductImage::find($image);
+      $ProductImage->featured = true;
+      $productImage->save();
+
+      return back();
+   }
 }
