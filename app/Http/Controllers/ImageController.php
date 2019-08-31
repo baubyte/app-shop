@@ -13,7 +13,7 @@ class ImageController extends Controller
    public function index($id)
    {
    		$product = Product::find($id);
-   		$images = $product->images;
+   		$images = $product->images()->orderBy('featured', 'desc')->get();
    		return view('admin.products.images.index')->with(compact('product','images'));
    }
    public function store(Request $request, $id)
@@ -56,15 +56,16 @@ class ImageController extends Controller
       }
       return back();
    }
-   public function select($d, $image)
+
+   public function select($id, $image)
    {
       //Primero Actualizamos Las Imagenaes Actualizadas Anteriormente
       ProductImage::where('product_id', $id)->update([
          'featured'=>false
       ]);
       //Despues descamos la imagen seleccionada
-      $ProductImage = ProductImage::find($image);
-      $ProductImage->featured = true;
+      $productImage = ProductImage::find($image);
+      $productImage->featured = true;
       $productImage->save();
 
       return back();

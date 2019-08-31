@@ -45,9 +45,15 @@
 		                <button type="submit" data-toggle="tooltip" data-placement="top" title="Eliminar Imagen" class="btn btn-danger btn-fab btn-fab-mini btn-round">
 		                   <i class="material-icons">close</i>
 		                </button>
-						<a href="{{ url('/products/.$products->id./images/select/'.$image->id)}}" data-toggle="tooltip" data-placement="top" title="Destacar Imagen" class="btn btn-primary btn-fab btn-fab-mini btn-round">
+		                @if ($image->featured)
+						<button type="button" data-toggle="tooltip" data-placement="top" title="Imagen Destacada del Producto" class="btn btn-rose btn-fab btn-fab-mini btn-round">
+							<i class="material-icons">favorite</i>
+						</button>
+		                @else
+						<a href="{{ url('/admin/products/'.$product->id.'/images/select/'.$image->id)}}" data-toggle="tooltip" data-placement="top" title="Destacar Imagen" class="btn btn-success btn-fab btn-fab-mini btn-round">
 							<i class="material-icons">favorite</i>
 						</a>
+						@endif
 	               	</form>
 			    </div>
 			  </div>
