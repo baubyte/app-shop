@@ -20,13 +20,13 @@ class CreateProductsTable extends Migration
             $table->string('description');
             $table->string('waists');
             $table->string('colours');
-            $table->text('long_description')->nullalable();
-            $table->float('price');
+            $table->text('long_description')->nullable();
+            $table->float('price');           
             $table->float('cost_price');
             $table->string('providers');
 
             //FK
-            $table->unsignedBigInteger('category_id')->nullalable();
+            $table->unsignedBigInteger('category_id')->nullable();
             $table->foreign('category_id')->references('id')->on('categories');
 
             $table->timestamps();

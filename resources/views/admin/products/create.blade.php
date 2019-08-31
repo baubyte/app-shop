@@ -67,6 +67,11 @@
                     <i class="fa fa-paint-brush"></i>
                   </span>
                 </div>
+              <!--  <select class="form-control selectpicker" data-style="btn-rose select-with-transition" multiple="" data-live-search="true" name="colours[]" title="Elija un Color" data-size="7">
+                @foreach ($colours as $colour)
+                <option data-tokens="{{ $colour->name}}" value="{{ $colour->name}}">{{ $colour->name}}</option> 
+                @endforeach 
+                </select>-->
                 <input id="colours" name="colours" type="text" class="form-control" placeholder="Colores Disponibles" value="{{ old('colours') }}">
               </div>
             </div>
@@ -93,7 +98,7 @@
               <select id="category_id" name="category_id" class="form-control">
                 <option selected disabled="true">Elija una Marca</option>
                 @foreach ($categories as $category)
-                <option value="  {{ $category->id}}" @if($category->id == old('category_id', $category->category_id)) selected @endif>{{ $category->name}}</option>
+                <option value="{{$category->id}}" @if($category->id == old('category_id')) selected @endif>{{ $category->name}}</option>
                 @endforeach
                 </select>
               </div>
@@ -118,7 +123,13 @@
                     <i class="fa fa-shopping-bag"></i>
                   </span>
                 </div>
-                <input id="providers" name="providers" type="text" class="form-control" placeholder="Proveedores" value="{{ old('providers') }}">
+                <select id="providers" name="providers" class="form-control">
+                <option selected disabled="true">Elija un Proveedor</option>
+                @foreach ($providers as $provider)
+                <option @if($provider->name == old('providers')) selected @endif value="{{$provider->name}}">{{$provider->name}}</option>
+                @endforeach
+                </select>
+                <!-- <input id="providers" name="providers" type="text" class="form-control" placeholder="Proveedores" value="{{ old('providers') }}"> -->
               </div>
             </div>
             </div>

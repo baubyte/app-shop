@@ -6,7 +6,11 @@ use Illuminate\Http\Request;
 
 use App\Product;
 use App\Category;
+use App\Provider;
 use App\ProductImage;
+use App\Colour;
+use App\Waist;
+
 class ProductController extends Controller
 {
     
@@ -18,7 +22,10 @@ class ProductController extends Controller
         public function create()
     {
     	$categories = Category::orderBy('name')->get();
-    	return view('admin.products.create')->with(compact('categories')); //Formulario de Alta de los Productos
+        $providers = Provider::orderBy('name')->get();
+        $colours = Colour::orderBy('name')->get();
+        $waists = Waist::orderBy('name')->get();
+    	return view('admin.products.create')->with(compact('categories','providers','colours','waists')); //Formulario de Alta de los Productos
     }
         public function store(Request $request)
     {
@@ -41,8 +48,7 @@ class ProductController extends Controller
 			'cost_price.required'  => 'Es necesario definir un precio de costo al producto.',
 			'cost_price.numeric'   => 'Ingrese un precio valido.',
 			'cost_price.min'       => 'No se admiten valores negativos.',
-			'providers.required' => 'Es necesario ingresar un Proveedor.',
-			'providers.min'      => 'El Proveedor debe tener al menos 5 caracteres.',
+			'providers.required' => 'Es necesario selecionar un Proveedor.',
 			'category_id.required' => 'Es necesario selecionar una Marca.'
 		];
 		
@@ -53,7 +59,7 @@ class ProductController extends Controller
 			'colours' => 'required|max:200',
 			'price' => 'required|numeric|min:0' ,//No negativos
 			'cost_price' => 'required|numeric|min:0', //No negativos
-			'providers' => 'required|min:5',
+			'providers' => 'required',
 			'category_id' => 'required'
 		];
 
@@ -80,7 +86,8 @@ class ProductController extends Controller
     {
     	$product = Product::find($id);
     	$categories = Category::orderBy('name')->get();
-    	return view('admin.products.edit')->with(compact('product','categories')); //Formulario de Edicion de los Productos
+        $providers = Provider::orderBy('name')->get();
+    	return view('admin.products.edit')->with(compact('product','categories','providers')); //Formulario de Edicion de los Productos
     }
         public function update(Request $request, $id)
     {
@@ -103,8 +110,7 @@ class ProductController extends Controller
 			'cost_price.required'  => 'Es necesario definir un precio de costo al producto.',
 			'cost_price.numeric'   => 'Ingrese un precio valido.',
 			'cost_price.min'       => 'No se admiten valores negativos.',
-			'providers.required' => 'Es necesario ingresar un Proveedor.',
-			'providers.min'      => 'El Proveedor debe tener al menos 5 caracteres.',
+			'providers.required' => 'Es necesario selecionar un Proveedor.',
 			'category_id.required' => 'Es necesario selecionar una Marca.'
 		];
 		
@@ -115,7 +121,7 @@ class ProductController extends Controller
 			'colours' => 'required|max:200',
 			'price' => 'required|numeric|min:0' ,//No negativos
 			'cost_price' => 'required|numeric|min:0', //No negativos
-			'providers' => 'required|min:5',
+			'providers' => 'required',
 			'category_id' => 'required'
 		];
 
@@ -130,7 +136,7 @@ class ProductController extends Controller
     	$product->long_description = $request->input('long_description');
     	$product->cost_price = $request->input('cost_price');
     	$product->providers = $request->input('providers');
-    	$product->category_id = '1';
+    	$product->category_id = $request->input('category_id');
     	
     	$product->save();//Actualizamos los Datos en la Base
 
