@@ -57,7 +57,13 @@
                     <i class="fa fa-align-justify"></i>
                   </span>
                 </div>
-                <input id="waists" name="waists" type="text" class="form-control" placeholder="Talles Disponibles" value="{{ old('waists') }}">
+                <select class="form-control selectpicker" data-style="btn btn-round btn-primary select-with-transition" multiple data-live-search="true" name="waist[]" data-size="6" title="Seleccione los Talles Disponibles">
+                @foreach ($waists as $waist)
+                  <option data-tokens="{{ $waist->name}}"
+                  @if (old('waist')){{ (in_array($waist->name, old('waist')) ? 'selected':'') }}@endif value="{{ $waist->name}}">{{ $waist->name}}</option> 
+                @endforeach
+                 </select>
+                <!-- <input id="waists" name="waists" type="text" class="form-control" placeholder="Talles Disponibles" value="{{ old('waists') }}"> -->
               </div>
             </div>
             <div class="col-sm-6">
@@ -67,12 +73,13 @@
                     <i class="fa fa-paint-brush"></i>
                   </span>
                 </div>
-              <!--  <select class="form-control selectpicker" data-style="btn-rose select-with-transition" multiple="" data-live-search="true" name="colours[]" title="Elija un Color" data-size="7">
+             <select class="form-control selectpicker" data-style="btn btn-round btn-primary select-with-transition" multiple data-live-search="true" name="colour[]" data-size="6" title="Seleccione los Colores Disponibles">
                 @foreach ($colours as $colour)
-                <option data-tokens="{{ $colour->name}}" value="{{ $colour->name}}">{{ $colour->name}}</option> 
+                <option data-tokens="{{ $colour->name}}"
+                @if (old('colour')){{ (in_array($colour->name, old('colour')) ? 'selected':'') }}@endif value="{{ $colour->name}}">{{ $colour->name}}</option> 
                 @endforeach 
-                </select>-->
-                <input id="colours" name="colours" type="text" class="form-control" placeholder="Colores Disponibles" value="{{ old('colours') }}">
+                </select>
+                <!--   <input id="colours" name="colours" type="text" class="form-control" placeholder="Colores Disponibles" value="{{ old('colours') }}">-->
               </div>
             </div>
             </div>
@@ -146,8 +153,8 @@
             </div>
             </div>
           </br>
-            <button type="submit" class="btn btn-primary btn-round btn-rose">Gurdar Producto</button>
-            <a href="{{ url('/admin/products')}}" class="btn btn-primary btn-round btn-primary">Cancelar</a>
+            <button type="submit" class="btn btn-round btn-rose">Gurdar Producto</button>
+            <a href="{{ url('/admin/products')}}" class="btn btn-primary btn-round">Cancelar</a>
         </form>
       </div>
     </div>

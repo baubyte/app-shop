@@ -14,7 +14,7 @@ class TestController extends Controller
     	//$c=$a+$b;
     	//return "El valor de la sumas es: $c";
     	
-    	$products = Product::all();
+    	$products = Product::paginate(9);
     	return view ('welcome')->with(compact('products'));
     }
 };

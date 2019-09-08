@@ -60,7 +60,12 @@
                     <i class="fa fa-align-justify"></i>
                   </span>
                 </div>
-                <input id="waists" name="waists" type="text" class="form-control" placeholder="Talles Disponibles" value="{{ $product->waists }}">
+                <select class="form-control selectpicker" data-style="btn btn-round btn-primary select-with-transition" multiple data-live-search="true" name="waist[]" data-size="6" title="Seleccione los Talles Disponibles">
+                @foreach ($waists as $waist)
+                  <option data-tokens="{{ $waist->name}}" {{ in_array($waist->name, explode(';',str_replace('; ', ';', $product->waists))) ? 'selected':'' }} value="{{ $waist->name}}">{{ $waist->name}}</option> 
+                @endforeach
+                 </select>
+                <!-- <input id="waists" name="waists" type="text" class="form-control" placeholder="Talles Disponibles" value="{{ $product->waists }}"> -->
               </div>
             </div>
             <div class="col-sm-6">
@@ -71,7 +76,13 @@
                     <i class="fa fa-paint-brush"></i>
                   </span>
                 </div>
-                <input id="colours" name="colours" type="text" class="form-control" placeholder="Colores Disponibles" value="{{ $product->colours }}">
+                <select class="form-control selectpicker" data-style="btn btn-round btn-primary select-with-transition" multiple data-live-search="true" name="colour[]" data-size="6" title="Seleccione los Colores Disponibles">
+                @foreach ($colours as $colour)
+                 <option data-tokens="{{ $colour->name}}"
+                {{ in_array($colour->name, explode(';',str_replace('; ', ';', $product->colours))) ? 'selected':'' }} value="{{ $colour->name}}">{{ $colour->name}}</option> 
+                @endforeach 
+                </select>
+                <!-- <input id="colours" name="colours" type="text" class="form-control" placeholder="Colores Disponibles" value="{{ str_replace('; ', ';', $product->colours)}}"> -->
               </div>
             </div>
             </div>
@@ -89,6 +100,7 @@
               </div>
             </div>
             <div class="col-sm-6">
+              <label for="category_id">Marca</label>
               <div class="input-group">
                 <div class="input-group-prepend">
                   <span class="input-group-text">
@@ -125,7 +137,13 @@
                     <i class="fa fa-shopping-bag"></i>
                   </span>
                 </div>
-                <input id="providers" name="providers" type="text" class="form-control" placeholder="Proveedores" value="{{ $product->providers }}">
+                <select id="providers" name="providers" class="form-control">
+                <option selected disabled="true">Elija un Proveedor</option>
+                @foreach ($providers as $provider)
+                <option value="{{ $provider->name}}" @if($provider->name == old('providers', $product->providers)) selected @endif>{{ $provider->name}}</option>
+                @endforeach
+                </select>
+                <!-- <input id="providers" name="providers" type="text" class="form-control" placeholder="Proveedores" value="{{ $product->providers }}"> -->
               </div>
             </div>
             </div>

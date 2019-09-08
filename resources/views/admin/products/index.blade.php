@@ -17,7 +17,7 @@
         <div class="row table-responsive">
           <a href="{{ url('/admin/products/create') }}" class="btn btn-primary btn-round btn-rose">Agregar Producto</a>
             <table class="table table-bordered table-hover table-sm">
-              <thead>
+              <thead class="table-danger">
                   <tr>
                       <th class="text-center">#</th>
                       <th class="text-center col-sm-1">Cod. Artículo</th>

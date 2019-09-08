@@ -40,3 +40,4 @@
   $('.form-file-multiple .btn').on('focusout', function() {
     $(this).parent().siblings().trigger('focusout');
   });
+  $('.pagination').addClass('justify-content-center');
