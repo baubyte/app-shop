@@ -29,7 +29,7 @@ class CreateCartDetailsTable extends Migration
             $table->string('waists');
             $table->string('opcional_colours');
             $table->float('price');
-            $table->integer('discount');//%
+            $table->integer('discount')->default(0);//%
             $table->float('cost_price');
 
             $table->timestamps();

@@ -19,12 +19,8 @@
               <div class="name">
                 <h3 class="title">{{ $product->name }}</h3>
                 <h6>{{ $product->category->name }}</h6>
+                @include('flash::message')
               </div>
-            @if (session('notification'))
-              <div class="alert alert-success">
-                {{ session('notification') }}
-              </div>
-            @endif
             </div>
           </div>
         </div>
@@ -41,7 +37,7 @@
               <i class="material-icons">add_shopping_cart</i> Añadir a Mis Pedidos
             </a>
           @endif
-        </div> 
+        </div>
         <div class="row">
           <div class="col-md-8 ml-auto mr-auto">
             <div class="profile-tabs">
@@ -100,9 +96,9 @@
             </div>
           </div>
       </div>
-    
+
     </div>
-  
+
   </div>
  </div>
  <div class="modal fade" id="modalAddToCart" tabindex="-1" role="">
@@ -115,9 +111,11 @@
                   </div>
                 </div>
                 <div class="modal-body">
-                    <form class="form" method="post" action="">
+                    <form class="form" method="post" action="{{ url('/cart') }}">
                     	@csrf
-                    	<input type="hidden" name="product_id" value="{{ $product->id }}">
+                        <input type="hidden" name="product_id" value="{{ $product->id }}">
+                        <input type="hidden" name="cost_price" value="{{ $product->cost_price }}">
+                        <input type="hidden" name="price" value="{{ $product->price }}">
                         <p class="description text-center">Complete los Detalles de su Pedido</p>
                         <div class="card-body">
                             <div class="form-group bmd-form-group">
@@ -139,8 +137,8 @@
   								  @foreach (explode(';',str_replace('; ', ';', $product->colours)) as $colour)
   								   <option value="{{$colour}}">
   								   	{{$colour}}
-  								  </option> 
-  								  @endforeach 
+  								  </option>
+  								  @endforeach
   								 </select>
                                 </div>
                             </div>
@@ -150,13 +148,13 @@
                                   <div class="input-group-prepend">
                                     <div class="input-group-text"><i class="material-icons">palette</i></div>
                                   </div>
-  								 <select class="form-control" name="colour" data-size="2" required>
+  								 <select class="form-control" name="colourOptional" data-size="2" required>
   								 <option disabled selected>Seleccione Color Opcional</option>
   								  @foreach (explode(';',str_replace('; ', ';', $product->colours)) as $colour)
   								   <option value="{{$colour}}">
   								   	{{$colour}}
-  								  </option> 
-  								  @endforeach 
+  								  </option>
+  								  @endforeach
   								 </select>
                                 </div>
                             </div>

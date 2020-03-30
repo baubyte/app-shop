@@ -16,8 +16,8 @@ class CreateCartsTable extends Migration
         Schema::create('carts', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-            $table->date('order_date');//fecha para cuando se esta solicitando el pedido
-            $table->date('arrived_date');//fecha para cuando llega por el Admin
+            $table->date('order_date')->nullable();//fecha para cuando se esta solicitando el pedido
+            $table->date('arrived_date')->nullable();//fecha para cuando llega por el Admin
             $table->string('status');//Actie(cuando esta en el carrito), Pending(cuando complero todos los detalles y pasa al Admin,Approved(Admin), Cancelled(Admin), Finished
 
             //FK user_id->Cliente

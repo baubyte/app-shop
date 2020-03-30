@@ -20,7 +20,7 @@
 </head>
 
 <body class="@yield('body-class')">
-  
+
 <nav class="navbar navbar navbar-color-on-scroll fixed-top navbar-expand-lg bg-rose" color-on-scroll="100" id="sectionsNav">
     <div class="container">
       <div class="navbar-translate">
@@ -51,6 +51,7 @@
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ url('/home')}}">Dashboard</a>
                        @if (auth()->user()->admin)
                         <a class="dropdown-item" href="{{ url('/admin/products')}}">Administrar Productos</a>
                        @endif
@@ -107,9 +108,10 @@
  <script src="{{ asset('/js/bootstrap-select.js')}}" type="text/javascript"></script>
 <!-- PARA LAS MASCARAS A LOS INPUTS-->
 <script src="{{ asset('/js/jquery.mask.js')}}" type="text/javascript"></script>
-<!-- PARA EL ZOOM EN LAS IMAGENES-->
-
-
+<!-- PARA FLASH LARACAST-->
+<script>
+    $('#flash-overlay-modal').modal();
+</script>
 </body>
 
 </html>
