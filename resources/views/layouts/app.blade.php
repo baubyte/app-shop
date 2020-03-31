@@ -54,6 +54,7 @@
                         <a class="dropdown-item" href="{{ url('/home')}}">Dashboard</a>
                        @if (auth()->user()->admin)
                         <a class="dropdown-item" href="{{ url('/admin/products')}}">Administrar Productos</a>
+                        <a class="dropdown-item" href="{{ url('/admin/categories')}}">Administrar Categorias</a>
                        @endif
                         <a class="dropdown-item" href="{{ route('logout') }}"
                            onclick="event.preventDefault();

@@ -45,7 +45,7 @@ Route::middleware(['auth','admin'])->prefix('admin')->namespace('Admin')->group(
         Route::get('/categories','CategoryController@index'); //Listados de Los Categorias
 		Route::get('/categories/create','CategoryController@create'); //Formulario de Alta de Los Categorias
 		Route::post('/categories','CategoryController@store'); //Guardar el Alta de Los Categorias
-		Route::get('/categories/{id}/edit','CategoryController@edit'); //Formulario de Edicion de Los Categorias
-		Route::post('/categories/{id}/edit','CategoryController@update'); //Guardar la Edicion de Los Categorias
-		Route::delete('/categories/{id}','CategoryController@destroy'); //Formulario para Eliminar Los Categorias
+		Route::get('/categories/{category}/edit','CategoryController@edit'); //Formulario de Edicion de Los Categorias
+		Route::post('/categories/{category}/edit','CategoryController@update'); //Guardar la Edicion de Los Categorias
+		Route::delete('/categories/{category}','CategoryController@destroy'); //Formulario para Eliminar Los Categorias
 });
