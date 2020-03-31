@@ -103,11 +103,11 @@
     <div class="section text-center">
       <h2 class="title">Marcas Disponibles</h2>
       <div class="row">
-        <form action="{{ url('/search') }}" method="GET" class="col-md-6 ml-auto mr-auto text-center">
+        <form action="{{ url('/search') }}" method="GET" class="ml-auto mr-auto text-center">
             <div class="form-group bmd-form-group">
                 <div class="input-group">
-                  <input id="search" name="query" type="text" class="form-control" placeholder="¿Que Estas Buscando?">
-                  <button type="submit"data-toggle="tooltip" data-placement="top" title="Buscar" class="btn btn-rose btn-fab btn-fab-mini btn-round">
+                  <input id="search" name="query" type="text" class="form-control" placeholder="¿Que Estas Buscando?"/>
+                  <button type="submit" data-toggle="tooltip" data-placement="top" title="Buscar" class="btn btn-rose btn-fab btn-fab-mini btn-round">
                     <i class="material-icons">search</i></button>
                 </div>
             </div>
@@ -120,10 +120,10 @@
             <div class="team-player">
               <div class="card card-plain">
                 <div class="col-md-6 ml-auto mr-auto">
-                  <img src="{{ $category->image }}" alt="Thumbnail Image" class="img-raised rounded-circle img-fluid">
+                  <img src="{{ $category->url }}" alt="Thumbnail Image" class="img-raised rounded-circle img-fluid">
                 </div>
                 <h4 class="card-title">
-                  <a href="{{ url('/products/'.$category->id)}}">{{ $category->name }}</a>
+                  <a href="{{ url('/categories/'.$category->id)}}">{{ $category->name }}</a>
                 </h4>
                 <div class="card-body">
                   <p class="card-description">{{ $category->description }}</p>
@@ -175,7 +175,7 @@
 </div>
 @include('includes.footer');
 @section('scripts')
-    <script src="{{ asset('/js/typeahead.bundle.js') }}"></script>
+    <script src="{{ asset('/js/typeahead.bundle.min.js') }}"></script>
     <script>
         /**Inicializamos TypeHead Sobre el Input de Busqueda*/
         $(function () {
@@ -183,8 +183,8 @@
             var products = new Bloodhound({
               datumTokenizer: Bloodhound.tokenizers.whitespace,
               queryTokenizer: Bloodhound.tokenizers.whitespace,
-                prefetch: '{{ url("/products/json") }}'
-                //local:['hola','martin','rosi']
+              prefetch: '{{ url("/products/json") }}'
+              //local: ['martin','rosi','12345']
             });
 
             // inicializar typeahead sobre nuestro input de búsqueda

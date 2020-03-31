@@ -15,7 +15,7 @@ class SearchController extends Controller
         /**Vemos si la Coincidencia es un Producto es decir exacta le llevamos al producto */
         if ($products->count() == 1) {
             $id = $products->first()->id;
-            return redirect("products/$id");
+            return redirect("products/$id");// 'products/'.$id
         }
         return view('search.show')->with(compact('products', 'query'));
     }

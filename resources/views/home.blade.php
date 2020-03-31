@@ -30,7 +30,7 @@
               <li class="nav-item">
                   <a class="nav-link" href="#tasks-1" role="tab" data-toggle="tab">
                       <i class="material-icons">list</i>
-                      Pedididos Realizados
+                      Pedidos Realizados
                   </a>
               </li>
           </ul>

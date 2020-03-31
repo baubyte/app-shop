@@ -18,12 +18,14 @@ class ProductsTableSeeder extends Seeder
        //Model Factory
        //Creando Productos al Azar y Categorias
        /*factory(Category::class, 7)->create();
+       factory(Provider::class, 3)->create();
        factory(Product::class, 20)->create();
-       factory(ProductImage::class, 40)->create(); */
+       factory(ProductImage::class, 40)->create();*/
+
 
        $categories = factory(Category::class, 7)->create();
-       $providers = factory(Provider::class, 2)->create();
-       $categories->each(function ($category, $providers){
+       $providers = factory(Provider::class, 3)->create();
+       $categories->each(function ($category){
         $products = factory(Product::class, 20)->make();
         $category->products()->saveMany($products);
 

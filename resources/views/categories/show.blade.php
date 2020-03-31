@@ -2,7 +2,7 @@
 
 @section('title','Productos por Categoria Pequitas Lenceria')
 
-@section('style')
+@section('styles')
     <style>
         .team {
             padding-bottom: 50px;
@@ -59,10 +59,7 @@
              </nav>
           </div>
         </div>
-
     </div>
-
-  </div>
- </div>
+</div>
 @include('includes.footer');
 @endsection

@@ -34,5 +34,14 @@ class Category extends Model
     {
     	return $this->hasMany(Product::class);
     }
+    /**Atributo para la imagen de categorias */
+    public function getUrlAttribute()
+    {
+    	if (substr($this->image,0 , 4)=== "http")
+    	{
+    		return $this->image;
+    	}
+    	return '/images/categories/' . $this->image;
+    }
 
 }
