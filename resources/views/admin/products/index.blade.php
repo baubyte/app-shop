@@ -1,5 +1,5 @@
 @extends('layouts.app')
- 
+
 @section('title','Listado de Productos Pequitas Lenceria')
 
 @section('body-class','profile-page sidebar-collapse')
@@ -9,7 +9,7 @@
 </div>
 
   <div class="main main-raised">
-  
+
   <div class="container">
     <div class="section text-center">
       <h3 class="title">Listado de Productos Disponibles</h3>
@@ -39,7 +39,7 @@
                       <td>{{ $product->colours}}</td>
                       <td class="text-center">&#36; {{ $product->price}}</td>
                       <td class="text-center">&#36; {{ $product->cost_price}}</td>
-                      <td>{{ $product->category->name}}</td>
+                      <td>{{ $product->category_name}}</td>
                       <td>{{ $product->providers}}</td>
                       <td class="td-actions text-center small">
                           <form method="post" action="{{ url('/admin/products/'.$product->id)}}">
@@ -48,7 +48,7 @@
                           </a>
                           <a href="{{ url('/admin/products/'.$product->id.'/edit')}}" data-toggle="tooltip" data-placement="top" title="Editar Producto" class="btn btn-success btn-fab btn-fab-mini btn-round">
                               <i class="material-icons">edit</i>
-                          </a>                          
+                          </a>
                           <a href="{{ url('/admin/products/'.$product->id.'/images')}}" data-toggle="tooltip" data-placement="top" title="Imagenes del Producto" class="btn btn-warning btn-fab btn-fab-mini btn-round">
                               <i class="material-icons">collections</i>
                           </a>
