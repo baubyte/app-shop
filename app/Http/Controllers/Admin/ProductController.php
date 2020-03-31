@@ -102,7 +102,8 @@ class ProductController extends Controller
     	$product->category_id = $request->input('category_id');;
 
     	$product->save();//Insertamos los Datos en la Base
-
+        /**Generamos un Mensaje */
+        flash('¡Bien Hecho! Se Agrego Correctamente el Producto.')->success()->important();
     	return redirect('admin/products/');
     }
  		public function edit($id)
@@ -188,7 +189,8 @@ class ProductController extends Controller
     	$product->category_id = $request->input('category_id');
 
     	$product->save();//Actualizamos los Datos en la Base
-
+        /**Generamos un Mensaje */
+        flash('¡Bien Hecho! Se Edito Correctamente el Producto.')->success()->important();
     	return redirect('admin/products/');
     }
         public function destroy($id)
@@ -196,7 +198,8 @@ class ProductController extends Controller
     	//Buscamos el Producto
     	$product = Product::find($id);
     	$product->delete();//Eliminamos los Datos en la Base
-
+        /**Generamos un Mensaje */
+        flash('¡Bien Hecho! Se Elimino Correctamente el Producto.')->success()->important();
     	return back();
     }
 }

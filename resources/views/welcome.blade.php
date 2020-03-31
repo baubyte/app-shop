@@ -1,12 +1,49 @@
 @extends('layouts.app')
- 
+
 @section('title','Bienvenido a Pequitas Lenceria')
 
+@section('styles')
+    <style>
+        .tt-hint {
+          color: #999
+        }
+
+        .tt-menu {    /* used to be tt-dropdown-menu in older versions */
+          width: 222px;
+          margin-top: 4px;
+          padding: 4px 0;
+          background-color: #fff;
+          border: 1px solid #ccc;
+          border: 1px solid rgba(0, 0, 0, 0.2);
+          -webkit-border-radius: 4px;
+             -moz-border-radius: 4px;
+                  border-radius: 4px;
+          -webkit-box-shadow: 0 5px 10px rgba(0,0,0,.2);
+             -moz-box-shadow: 0 5px 10px rgba(0,0,0,.2);
+                  box-shadow: 0 5px 10px rgba(0,0,0,.2);
+        }
+
+        .tt-suggestion {
+          padding: 3px 20px;
+          line-height: 24px;
+        }
+
+        .tt-suggestion.tt-cursor,.tt-suggestion:hover {
+          color: #fff;
+          background-color: #e91e63;
+
+        }
+
+        .tt-suggestion p {
+          margin: 0;
+        }
+    </style>
+@endsection
 @section('body-class','landing-page sidebar-collapse')
 
 @section('content')
 <div class="page-header header-filter" data-parallax="true" style="background-image: url('{{ asset('img/profile_city.jpg')}}')">
-  
+
   <div class="container">
     <div class="row">
       <div class="col-md-6">
@@ -22,7 +59,7 @@
 </div>
 
   <div class="main main-raised">
-  
+
   <div class="container">
     <div class="section text-center">
       <div class="row">
@@ -64,32 +101,38 @@
       </div>
     </div>
     <div class="section text-center">
-      <h2 class="title">Productos Disponibles</h2>
+      <h2 class="title">Marcas Disponibles</h2>
+      <div class="row">
+        <form action="{{ url('/search') }}" method="GET" class="col-md-6 ml-auto mr-auto text-center">
+            <div class="form-group bmd-form-group">
+                <div class="input-group">
+                  <input id="search" name="query" type="text" class="form-control" placeholder="¿Que Estas Buscando?">
+                  <button type="submit"data-toggle="tooltip" data-placement="top" title="Buscar" class="btn btn-rose btn-fab btn-fab-mini btn-round">
+                    <i class="material-icons">search</i></button>
+                </div>
+            </div>
+        </form>
+      </div>
       <div class="team">
         <div class="row">
-          @foreach ($products as $product)
+          @foreach ($categories as $category)
           <div class="col-md-4">
             <div class="team-player">
               <div class="card card-plain">
                 <div class="col-md-6 ml-auto mr-auto">
-                  <img src="{{ $product->featured_image_url }}" alt="Thumbnail Image" class="img-raised rounded-circle img-fluid">
+                  <img src="{{ $category->image }}" alt="Thumbnail Image" class="img-raised rounded-circle img-fluid">
                 </div>
                 <h4 class="card-title">
-                  <a href="{{ url('/products/'.$product->id)}}">{{ $product->name }}</a>
-                  <br>
-                  <small class="card-description text-muted">{{ $product->category->name }}</small>
+                  <a href="{{ url('/products/'.$category->id)}}">{{ $category->name }}</a>
                 </h4>
                 <div class="card-body">
-                  <p class="card-description">{{ $product->description }}</p>
+                  <p class="card-description">{{ $category->description }}</p>
                 </div>
               </div>
             </div>
           </div>
           @endforeach
         </div>
-        <nav class="justify-content-center">
-          {{ $products->links()}}
-         </nav>
       </div>
     </div>
     <div class="section section-contacts">
@@ -131,4 +174,29 @@
 
 </div>
 @include('includes.footer');
+@section('scripts')
+    <script src="{{ asset('/js/typeahead.bundle.js') }}"></script>
+    <script>
+        /**Inicializamos TypeHead Sobre el Input de Busqueda*/
+        $(function () {
+            //
+            var products = new Bloodhound({
+              datumTokenizer: Bloodhound.tokenizers.whitespace,
+              queryTokenizer: Bloodhound.tokenizers.whitespace,
+                prefetch: '{{ url("/products/json") }}'
+                //local:['hola','martin','rosi']
+            });
+
+            // inicializar typeahead sobre nuestro input de búsqueda
+            $('#search').typeahead({
+                hint: true,
+                highlight: true,
+                minLength: 1
+            }, {
+                name: 'products',
+                source: products
+            });
+        });
+    </script>
+@endsection
 @endsection

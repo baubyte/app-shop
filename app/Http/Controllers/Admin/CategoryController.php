@@ -53,7 +53,8 @@ class CategoryController extends Controller
         public function destroy(Category $category)//Forma de conversion asi Laravel ejecuta el Find Automáticamente
     {
     	$category->delete();//Eliminamos los Datos en la Base
-
+        /**Generamos un Mensaje */
+        flash('¡Bien Hecho! Se Edito Correctamente la Categoría/Marca.')->success()->important();
     	return back();
     }
 }

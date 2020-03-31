@@ -27,7 +27,7 @@ class ImageController extends Controller
       $moved = $file->move($path, $fileName);
 
       //Insert registro en product_images
-      if ($moved) 
+      if ($moved)
       {
          $productImage = new ProductImage();
          $productImage->image = $fileName;
@@ -35,19 +35,20 @@ class ImageController extends Controller
          $productImage->product_id = $id;
          $productImage->save();
       }
-
+        /**Generamos un Mensaje */
+        flash('¡Bien Hecho! Se Agrego Correctamente la Imagen al Producto.')->success()->important();
       return back();
-   	
+
    }
    public function destroy(Request $request, $id)
    {
    	//Eliminamos la Imagen
       $productImage = ProductImage::find($request->input('image_id'));
-      if (substr($productImage->image,0 , 4) === "http") 
+      if (substr($productImage->image,0 , 4) === "http")
       {
          $deleted = true;
       }
-      else 
+      else
       {
          $fullPath = public_path() . '/images/products/'.$productImage->image;
          $deleted = File::delete($fullPath);
@@ -56,12 +57,14 @@ class ImageController extends Controller
       if ($deleted) {
          $productImage->delete();
       }
+        /**Generamos un Mensaje */
+        flash('¡Bien Hecho! Se Elimino Correctamente la Imagen del Producto.')->success()->important();
       return back();
    }
 
    public function select($id, $image)
    {
-      //Primero Actualizamos Las Imagenaes Actualizadas Anteriormente
+      //Primero Actualizamos Las Imágenes Actualizadas Anteriormente
       ProductImage::where('product_id', $id)->update([
          'featured'=>false
       ]);
@@ -69,7 +72,8 @@ class ImageController extends Controller
       $productImage = ProductImage::find($image);
       $productImage->featured = true;
       $productImage->save();
-
+        /**Generamos un Mensaje */
+        flash('¡Bien Hecho! Se Selecciono Correctamente la Imagen como Destacada.')->success()->important();
       return back();
    }
 }

@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use Illuminate\Http\Request;
-use App\Product;
 
 class TestController extends Controller
 {
@@ -13,8 +13,8 @@ class TestController extends Controller
     	//$b=5;
     	//$c=$a+$b;
     	//return "El valor de la sumas es: $c";
-    	
-    	$products = Product::paginate(9);
-    	return view ('welcome')->with(compact('products'));
+
+    	$categories = Category::get();
+    	return view ('welcome')->with(compact('categories'));
     }
 };

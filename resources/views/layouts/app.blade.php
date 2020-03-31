@@ -16,7 +16,7 @@
   <!-- CSS Files -->
   <link href="{{asset('css/material-kit.css?v=2.0.5') }}" rel="stylesheet" />
   <link href="{{asset('css/bootstrap-select.css') }}" rel="stylesheet" />
-
+  @yield('styles')
 </head>
 
 <body class="@yield('body-class')">
@@ -113,6 +113,7 @@
 <script>
     $('#flash-overlay-modal').modal();
 </script>
+@yield('scripts')
 </body>
 
 </html>

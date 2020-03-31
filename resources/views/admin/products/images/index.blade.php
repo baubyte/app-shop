@@ -1,5 +1,5 @@
 @extends('layouts.app')
- 
+
 @section('title','Imagenes de Productos Pequitas Lenceria')
 
 @section('body-class','profile-page sidebar-collapse')
@@ -9,13 +9,13 @@
 </div>
 
   <div class="main main-raised">
-  
+
   <div class="container">
     <div class="section text-center">
       <h3 class="title">Imágenes del Producto "{{ $product->name}}"</h3>
-
+      @include('flash::message')
       	<form method="post" action="" enctype="multipart/form-data">
-      		@csrf			
+      		@csrf
 			  <div class="form-group form-file-upload form-file-multiple">
 			    <input type="file" name="photo" class="inputFileHidden" required>
 			    <div class="input-group">

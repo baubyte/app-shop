@@ -18,8 +18,13 @@ Route::get('/', 'TestController@welcome');
 });*/
 Auth::routes();
 
+/**Busqueda de Productos */
+Route::get('/search','SearchController@show');
+Route::get('/products/json','SearchController@data');
+
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/products/{product}','ProductController@show')->name('product.show'); //Mostrar Informacion de de Los Productos
+Route::get('/categories/{category}','CategoryController@show');
 
 /**Para Agregar Productos al Carrito*/
 Route::post('/cart','CartDetailController@store');

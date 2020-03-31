@@ -13,6 +13,7 @@
   <div class="container">
     <div class="section text-center">
       <h3 class="title">Listado de Productos Disponibles</h3>
+      @include('flash::message')
       <div class="team">
         <div class="row table-responsive">
           <a href="{{ url('/admin/products/create') }}" class="btn btn-primary btn-round btn-rose">Agregar Producto</a>
@@ -43,7 +44,7 @@
                       <td>{{ $product->provider_name}}</td>
                       <td class="td-actions text-center small">
                           <form method="post" action="{{ url('/admin/products/'.$product->id)}}">
-                          <a href="#" data-toggle="tooltip" data-placement="top" title="Ver Producto" class="btn btn-info btn-fab btn-fab-mini btn-round">
+                          <a href="{{ url('/products/'.$product->id) }}" target="_blank" data-toggle="tooltip" data-placement="top" title="Ver Producto" class="btn btn-info btn-fab btn-fab-mini btn-round">
                               <i class="material-icons">info</i>
                           </a>
                           <a href="{{ url('/admin/products/'.$product->id.'/edit')}}" data-toggle="tooltip" data-placement="top" title="Editar Producto" class="btn btn-success btn-fab btn-fab-mini btn-round">
