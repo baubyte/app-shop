@@ -4,8 +4,16 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+ /**Línea necesaria para Borrado Logico*/
+ use Illuminate\Database\Eloquent\SoftDeletes;
+
 class Category extends Model
 {
+    use SoftDeletes; //Implementamos
+
+    /**Registramos la nueva columna */
+    protected $dates = ['deleted_at'];
+
     /**Validaciones y mensajes personalizados*/
     public static $messages = [
         'name.required' => 'Es necesario ingresar una Categoría/Marca.',

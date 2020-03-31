@@ -19,7 +19,10 @@ class CreateCategoriesTable extends Migration
 
             $table->string('description')->nullable();
             $table->string('image')->nullable();
-            
+
+            /**Para Activar el borrado lógico*/
+            $table->softDeletes();
+
             $table->timestamps();
         });
     }

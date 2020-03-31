@@ -15,7 +15,7 @@ use App\Waist;
 
 class ProductController extends Controller
 {
-    
+
     public function index()
     {
     	$products = Product::paginate(10);
@@ -31,10 +31,10 @@ class ProductController extends Controller
     }
         public function store(Request $request)
     {
-    	//Guardar el Alta de Los Productos  
+    	//Guardar el Alta de Los Productos
     	//dd($request->all());
     	//Validaciones y mensajes personalizados
-    	
+
 		$messages = [
 			'name.required' => 'Es necesario ingresar un Cod. de Producto.',
 			'name.min'      => 'El codigo de producto debe tener al menos 3 caracteres.',
@@ -53,7 +53,7 @@ class ProductController extends Controller
 			'providers.required' => 'Es necesario selecionar un Proveedor.',
 			'category_id.required' => 'Es necesario selecionar una Marca.'
 		];
-		
+
 		$rules = [
 			'name' => 'required|min:3',
 			'description' => 'required|max:200',
@@ -67,15 +67,15 @@ class ProductController extends Controller
 
 		$this->validate($request, $rules, $messages);
 
-    	//Instanciamos 
+    	//Instanciamos
     	$product = new Product();
     	//Recibimos los datos
     	$product->name = $request->input('name');
     	$product->price = $request->input('price');
-       
+
         /*=============================================
         =  RECIBIMOS LOS COLORES Y LO CONCATENAMOS    =
-        =============================================*/    
+        =============================================*/
         $colours="";
         foreach ($request->input('colour') as $colour) {
             $colours .= $colour.'; ';
@@ -83,10 +83,10 @@ class ProductController extends Controller
         //INSERTAMOS LOS COLORES Y LIMPIAMOS EL ULTIMO CARACTER
          $product->colours =rtrim($colours,'; ') ;
         /*===== FIN RECIBIMOS LOS COLORES Y LO CONCATENAMOS   ======*/
-        
+
         /*=============================================
         =  RECIBIMOS LOS TALLES Y LO CONCATENAMOS    =
-        =============================================*/   
+        =============================================*/
         $waists="";
         foreach ($request->input('waist') as $waist) {
             $waists .= $waist.'; ';
@@ -98,9 +98,9 @@ class ProductController extends Controller
     	$product->description = $request->input('description');
     	$product->long_description = $request->input('long_description');
     	$product->cost_price = $request->input('cost_price');
-    	$product->providers = $request->input('providers');
+    	$product->provider_id = $request->input('providers');
     	$product->category_id = $request->input('category_id');;
-    	
+
     	$product->save();//Insertamos los Datos en la Base
 
     	return redirect('admin/products/');
@@ -114,15 +114,15 @@ class ProductController extends Controller
         $waists = Waist::orderBy('name')->get();
     	return view('admin.products.edit')->with(compact('product','categories','providers','colours','waists')); //Formulario de Edicion de los Productos
     }
-        
+
         public function update(Request $request, $id)
     {
-    	//Buscamos el Producto 
-        
+    	//Buscamos el Producto
+
         $product = Product::find($id);
-    	
+
     	//Validaciones y mensajes personalizados
-    	
+
 		$messages = [
 			'name.required' => 'Es necesario ingresar un Cod. de Producto.',
 			'name.min'      => 'El codigo de producto debe tener al menos 3 caracteres.',
@@ -141,7 +141,7 @@ class ProductController extends Controller
 			'providers.required' => 'Es necesario selecionar un Proveedor.',
 			'category_id.required' => 'Es necesario selecionar una Marca.'
 		];
-		
+
 		$rules = [
 			'name' => 'required|min:3',
 			'description' => 'required|max:200',
@@ -161,7 +161,7 @@ class ProductController extends Controller
 
         /*=============================================
         =  RECIBIMOS LOS COLORES Y LO CONCATENAMOS    =
-        =============================================*/    
+        =============================================*/
         $colours="";
         foreach ($request->input('colour') as $colour) {
             $colours .= $colour.'; ';
@@ -169,10 +169,10 @@ class ProductController extends Controller
         //INSERTAMOS LOS COLORES Y LIMPIAMOS EL ULTIMO CARACTER
          $product->colours =rtrim($colours,'; ') ;
         /*===== FIN RECIBIMOS LOS COLORES Y LO CONCATENAMOS   ======*/
-        
+
         /*=============================================
         =  RECIBIMOS LOS TALLES Y LO CONCATENAMOS    =
-        =============================================*/   
+        =============================================*/
         $waists="";
         foreach ($request->input('waist') as $waist) {
             $waists .= $waist.'; ';
@@ -184,9 +184,9 @@ class ProductController extends Controller
     	$product->description = $request->input('description');
     	$product->long_description = $request->input('long_description');
     	$product->cost_price = $request->input('cost_price');
-    	$product->providers = $request->input('providers');
+    	$product->provider_id = $request->input('providers');
     	$product->category_id = $request->input('category_id');
-    	
+
     	$product->save();//Actualizamos los Datos en la Base
 
     	return redirect('admin/products/');

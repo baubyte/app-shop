@@ -21,7 +21,10 @@ class CreateProvidersTable extends Migration
             $table->string('address')->nullable();
             $table->string('telephone')->nullable();
             $table->string('email')->nullable();
-    
+
+            /**Para Activar el borrado lógico*/
+            $table->softDeletes();
+
             $table->timestamps();
         });
     }

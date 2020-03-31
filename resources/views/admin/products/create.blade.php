@@ -1,5 +1,5 @@
 @extends('layouts.app')
- 
+
 @section('title','Agregar Productos Pequitas Lenceria')
 
 @section('body-class','profile-page sidebar-collapse')
@@ -11,7 +11,7 @@
   <div class="container">
     <div class="section text-center">
       <h3 class="title">Agregar Productos</h2>
-      @if ($errors->any())    
+      @if ($errors->any())
       <div class="alert alert-danger alert-dismissible fade show" role="alert">
         <button  type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -60,7 +60,7 @@
                 <select class="form-control selectpicker" data-style="btn btn-round btn-primary select-with-transition" multiple data-live-search="true" name="waist[]" data-size="6" title="Seleccione los Talles Disponibles">
                 @foreach ($waists as $waist)
                   <option data-tokens="{{ $waist->name}}"
-                  @if (old('waist')){{ (in_array($waist->name, old('waist')) ? 'selected':'') }}@endif value="{{ $waist->name}}">{{ $waist->name}}</option> 
+                  @if (old('waist')){{ (in_array($waist->name, old('waist')) ? 'selected':'') }}@endif value="{{ $waist->name}}">{{ $waist->name}}</option>
                 @endforeach
                  </select>
                 <!-- <input id="waists" name="waists" type="text" class="form-control" placeholder="Talles Disponibles" value="{{ old('waists') }}"> -->
@@ -76,8 +76,8 @@
              <select class="form-control selectpicker" data-style="btn btn-round btn-primary select-with-transition" multiple data-live-search="true" name="colour[]" data-size="6" title="Seleccione los Colores Disponibles">
                 @foreach ($colours as $colour)
                 <option data-tokens="{{ $colour->name}}"
-                @if (old('colour')){{ (in_array($colour->name, old('colour')) ? 'selected':'') }}@endif value="{{ $colour->name}}">{{ $colour->name}}</option> 
-                @endforeach 
+                @if (old('colour')){{ (in_array($colour->name, old('colour')) ? 'selected':'') }}@endif value="{{ $colour->name}}">{{ $colour->name}}</option>
+                @endforeach
                 </select>
                 <!--   <input id="colours" name="colours" type="text" class="form-control" placeholder="Colores Disponibles" value="{{ old('colours') }}">-->
               </div>
@@ -133,7 +133,7 @@
                 <select id="providers" name="providers" class="form-control">
                 <option selected disabled="true">Elija un Proveedor</option>
                 @foreach ($providers as $provider)
-                <option @if($provider->name == old('providers')) selected @endif value="{{$provider->name}}">{{$provider->name}}</option>
+                <option @if($provider->name == old('providers')) selected @endif value="{{$provider->id}}">{{$provider->name}}</option>
                 @endforeach
                 </select>
                 <!-- <input id="providers" name="providers" type="text" class="form-control" placeholder="Proveedores" value="{{ old('providers') }}"> -->

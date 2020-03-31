@@ -40,7 +40,7 @@
                       <td class="text-center">&#36; {{ $product->price}}</td>
                       <td class="text-center">&#36; {{ $product->cost_price}}</td>
                       <td>{{ $product->category_name}}</td>
-                      <td>{{ $product->providers}}</td>
+                      <td>{{ $product->provider_name}}</td>
                       <td class="td-actions text-center small">
                           <form method="post" action="{{ url('/admin/products/'.$product->id)}}">
                           <a href="#" data-toggle="tooltip" data-placement="top" title="Ver Producto" class="btn btn-info btn-fab btn-fab-mini btn-round">

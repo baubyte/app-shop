@@ -21,13 +21,19 @@ class CreateProductsTable extends Migration
             $table->string('waists');
             $table->string('colours');
             $table->text('long_description')->nullable();
-            $table->float('price');           
+            $table->float('price');
             $table->float('cost_price');
-            $table->string('providers');
 
-            //FK
+            /**FK Para Categorías */
             $table->unsignedBigInteger('category_id')->nullable();
             $table->foreign('category_id')->references('id')->on('categories');
+
+            /**FK Para Proveedores */
+            $table->unsignedBigInteger('provider_id')->nullable();
+            $table->foreign('provider_id')->references('id')->on('providers');
+
+            /**Para Activar el borrado lógico*/
+            $table->softDeletes();
 
             $table->timestamps();
         });
