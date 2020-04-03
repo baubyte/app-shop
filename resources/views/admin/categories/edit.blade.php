@@ -24,10 +24,10 @@
           </div>
         @endif
       <div class="team">
-        <form method="post" action="{{ url('/admin/categories/'.$category->id.'/edit')}}">
+        <form method="post" action="{{ url('/admin/categories/'.$category->id.'/edit')}}" enctype="multipart/form-data">
             @csrf
           <div class="row">
-            <div class="col-sm-8">
+            <div class="col-sm-6">
               <label for="name">Nombre Categoria/Marca</label>
               <div class="input-group">
                 <div class="input-group-prepend">
@@ -38,10 +38,23 @@
                 <input id="name" name="name" type="text" class="form-control" placeholder="Cod. de Producto" value="{{ $category->name }}">
               </div>
             </div>
+            <div class="col-sm-6">
+                <div class="form-group form-file-upload form-file-multiple">
+                    <input type="file" name="image" class="inputFileHidden">
+                    <div class="input-group">
+                        <input type="text" class="form-control inputFileVisible" placeholder="Seleccionar Imagen">
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-fab btn-round btn-primary">
+                                <i class="material-icons">attach_file</i>
+                            </button>
+                        </span>
+                    </div>
+                  </div>
+                </div>
             </div>
              </br>
             <div class="row">
-            <div class="col-sm-8">
+            <div class="col-sm-6">
               <label for="long_description">Descripción</label>
               <div class="input-group">
                 <div class="input-group-prepend">
@@ -51,6 +64,16 @@
                 </div>
                 <textarea id="description" name="description" class="form-control" placeholder="Descripción" rows="4">{{ $category->description }} </textarea>
               </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <div class="input-group">
+                        <p class="help-block">Subir Imagen Solo si Queres Cambiarla.
+                            <a href="{{$category->url}}" target="_blank">Imagen Actual</a>
+                        </p>
+                    </div>
+                  </div>
+                </div>
             </div>
             </div>
           </br>

@@ -23,6 +23,7 @@
                       <th class="text-center col-sm-1">#</th>
                       <th class="text-center col-sm-1">Nombre</th>
                       <th class="text-center col-sm-2">Descripción</th>
+                      <th class="text-center col-sm-2">Imagen</th>
                       <th class="text-center col-sm-1">Opciones</th>
                   </tr>
               </thead>
@@ -32,6 +33,9 @@
                       <td class="text-center">{{ $key+1 }}</td>
                       <td>{{ $category->name }}</td>
                       <td>{{ $category->description}}</td>
+                      <td class="text-center">
+                        <img src="{{ $category->url}}" height="50">
+                    </td>
                       <td class="td-actions text-center small">
                           <form method="post" action="{{ url('/admin/categories/'.$category->id)}}">
                           <a href="#" data-toggle="tooltip" data-placement="top" title="Ver Categoria" class="btn btn-info btn-fab btn-fab-mini btn-round">

@@ -45,7 +45,7 @@
                             <th class="text-center col-sm-2">Talle</th>
                             <th class="text-center col-sm-2">Color</th>
                             <th class="text-center col-sm-2">Color Opcional</th>
-                            <th class="text-center col-sm-2">Cantidad</th>
+                            <th class="text-center col-sm-1">Cantidad</th>
                             <th class="text-center col-sm-2">Precio</th>
                             <th class="text-center col-sm-1">Descuento</th>
                             <th class="text-center col-sm-2">Subtotal</th>
@@ -83,6 +83,9 @@
                         @endforeach
                     </tbody>
                   </table>
+                  <div class="text-right">
+                    <h3>Importe Total a Pagar: $ {{auth()->user()->cart->total}}</h3>
+                  </div>
                   <div class="text-center">
                       <form method="POST" action="{{ url('/order') }}">
                       @csrf

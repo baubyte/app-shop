@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
 
   <!-- CSS Files -->
-  <link href="{{asset('css/material-kit.css?v=2.0.5') }}" rel="stylesheet" />
+  <link href="{{asset('css/material-kit.css?v=2.0.7') }}" rel="stylesheet" />
   <link href="{{asset('css/bootstrap-select.css') }}" rel="stylesheet" />
   @yield('styles')
 </head>
@@ -102,7 +102,7 @@
   <!--  Google Maps Plugin    -->
   <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
   <!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
-  <script src="{{ asset('/js/material-kit.js?v=2.0.5')}}" type="text/javascript"></script>
+  <script src="{{ asset('/js/material-kit.js?v=2.0.7')}}" type="text/javascript"></script>
 <!-- Funciones Adicionales para los formularios-->
  <script src="{{ asset('/js/functions.js')}}" type="text/javascript"></script>
  <!-- BOOTSTRAP SELECT PARA LAS LISTAS DEPLEGABLES-->

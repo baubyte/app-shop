@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Category;
+use File;
 
 class CategoryController extends Controller
 {
@@ -25,7 +26,20 @@ class CategoryController extends Controller
         $this->validate($request, Category::$rules, Category::$messages);
 
         /**Usamos la Manera de Asignación Masiva (Mass Assignment) */
-        Category::create($request->all());
+            $category = Category::create($request->only('name','description'));
+            if ($request->hasFile('image')) {
+                $file = $request->file('image');
+                $path = public_path() . '/images/categories';
+                $fileName = uniqid() . $file->getClientOriginalName();
+                $moved = $file->move($path, $fileName);
+
+                //Update Category Image
+                if ($moved)
+                {
+                   $category->image = $fileName;
+                   $category->save();
+                }
+            }
 
         /**Generamos un Mensaje */
         flash('¡Bien Hecho! Se Agrego Correctamente la Categoría/Marca.')->success()->important();
@@ -43,7 +57,28 @@ class CategoryController extends Controller
         $this->validate($request, Category::$rules, Category::$messages);
 
         /**Usamos la Manera de Asignación Masiva (Mass Assignment) */
-        $category->update($request->all());
+        $category->update($request->only('name','description'));
+
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $path = public_path() . '/images/categories';
+            $fileName = uniqid() . $file->getClientOriginalName();
+            $moved = $file->move($path, $fileName);
+
+            //Update Category Image
+            if ($moved)
+            {
+                /**Tomamos los Datos de la Imagen Anterior */
+                $previousPath = $path .'/'. $category->image;
+                /**Actualizamos Con la Nueva Imagen */
+                $category->image = $fileName;
+                $saved = $category->save();
+                /**Eliminamos la Imagen Anterior si se Guardo los Cambios */
+                if ($saved) {
+                    File::delete($previousPath);
+                }
+            }
+        }
 
         /**Generamos un Mensaje */
         flash('¡Bien Hecho! Se Edito Correctamente la Categoría/Marca.')->success()->important();

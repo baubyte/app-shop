@@ -24,10 +24,10 @@
           </div>
         @endif
       <div class="team">
-        <form method="post" action="{{ url('/admin/categories')}}">
+        <form method="post" action="{{ url('/admin/categories')}}" enctype="multipart/form-data">
             @csrf
           <div class="row">
-            <div class="col-sm-8">
+            <div class="col-sm-6">
               <div class="input-group">
                 <div class="input-group-prepend">
                   <span class="input-group-text">
@@ -35,6 +35,19 @@
                   </span>
                 </div>
                 <input id="name" name="name" type="text" class="form-control" placeholder="Categoria / Marca" value="{{ old('name') }}">
+              </div>
+            </div>
+            <div class="col-sm-6">
+            <div class="form-group form-file-upload form-file-multiple">
+			    <input type="file" name="image" class="inputFileHidden">
+			    <div class="input-group">
+			        <input type="text" class="form-control inputFileVisible" placeholder="Seleccionar Imagen">
+			        <span class="input-group-btn">
+			            <button type="button" class="btn btn-fab btn-round btn-primary">
+			                <i class="material-icons">attach_file</i>
+			            </button>
+			        </span>
+			    </div>
               </div>
             </div>
             </div>
