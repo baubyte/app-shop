@@ -1,0 +1,6 @@
+DATOS DE ACCESO FTP
+
+HOST: 	c1500517.ferozo.com
+PUERTO: 	21
+USUARIO FTP: 	c1500517
+CONTRASEÑA: 	di41roviFE    Ocultar
