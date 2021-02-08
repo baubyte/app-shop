@@ -17,7 +17,6 @@ class AddFieldsToUsers extends Migration
             $table->string('username')->unique();
             $table->string('phone')->nullable();
             $table->string('address')->nullable();
-
         });
     }
 
@@ -30,7 +29,7 @@ class AddFieldsToUsers extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->dropColumn([
-                'username','phone', 'address'
+                'username', 'phone', 'address'
             ]);
         });
     }

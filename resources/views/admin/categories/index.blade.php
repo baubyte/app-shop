@@ -37,7 +37,7 @@
                         <img src="{{ $category->url}}" height="50">
                     </td>
                       <td class="td-actions text-center small">
-                          <form method="post" action="{{ url('/admin/categories/'.$category->id)}}">
+                          <form method="post" action="{{ url('/admin/categories/'.encrypt($category->id))}}">
                           <a href="#" data-toggle="tooltip" data-placement="top" title="Ver Categoria" class="btn btn-info btn-fab btn-fab-mini btn-round">
                               <i class="material-icons">info</i>
                           </a>
